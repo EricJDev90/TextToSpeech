@@ -24,11 +24,13 @@ speedInput.addEventListener('input', () => {
 document.addEventListener("keydown", function(event) {
     //log which key is pressed
     console.log(event.which)
+
     //enter key(13) is pressed
     if (event.which == 13 && speechSynthesis.speaking == false) {
         console.log("Playing via Enter")
         playText(textInput.value)
     }
+    
     if (event.which == 13 && speechSynthesis.pause) {
         console.log("Resuming via Enter")
         speechSynthesis.resume()
@@ -62,7 +64,9 @@ function playText(text) {
 
 //pause function
 function pauseText() {
-    if (speechSynthesis.speaking) speechSynthesis.pause()
+    if (speechSynthesis.speaking) {
+        speechSynthesis.pause()
+    }
 }
 
 //stop function
